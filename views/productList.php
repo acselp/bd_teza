@@ -1,8 +1,11 @@
 <?php include ROOT . "/views/blocks/head.php"?>
 <?php include ROOT . "/views/blocks/header.php"?>
 
-<?php if($deleted): ?>
-    <h3 style="margin: auto;margin-top: 0">Inregistrarea a fost stearsa cu succes</h3>
+<?php if(isset($deleted) && $deleted): ?>
+    <h3 style="text-align: center; margin: auto;margin-top: 0">
+        Produsul a fost sters cu succes<br>
+        <a style="margin: auto;margin-top: 0" href="/seller/product">Produse <- inapoi</a>
+    </h3>
 <?php else: ?>
 
 <section class="margin-bottom-150">
@@ -14,6 +17,7 @@
                 
                 
                 <div class="col-md-12">
+                <a style="margin: auto;margin-top: 0" href="/cabinet">Cabinet <- inapoi</a><br><br><br>
                 <a href="/seller/product/add"> + Adauga produs</a>
                 <h3>Produsele dumneavoastra</h3>
                 <div class="table-responsive">
@@ -42,7 +46,7 @@
                                     <!-- <td><?//=$prod['fname'] . ' ' . $prod['lname'] ?></td> -->
                                     <td><?=$prod['data_fabr']?></td>
                                     <td><?=$prod['term_val'] . " zile"?></td>
-                                    <td><?=$prod['data_adaug'] . " zile"?></td>
+                                    <td><?=$prod['data_adaug']?></td>
                                     <td><a href="/seller/product/edit/<?=$prod['id_produs']?>"><i class="fa fa-edit"></i></a></td>
                                     <td><a href="/seller/product/remove/<?=$prod['id_produs']?>"><img class="menu_icon delete_icon" src="/template/images/trash.png" alt=""></a></td>
                                 </tr>

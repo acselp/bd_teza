@@ -3,9 +3,16 @@
 
 
 <?php if($added): ?>
-    <h3 style="margin: auto;margin-top: 0">Produsul a fost adaugat cu succes</h3>
+    <h3 style="text-align: center; margin: auto;margin-top: 0">
+        Produsul a fost adaugat cu succes<br>
+        <a style="margin: auto;margin-top: 0" href="/seller/product">Produse <- inapoi</a>
+    </h3>
+    
 <?php elseif($edited): ?>
-    <h3 style="margin: auto;margin-top: 0">Produsul a fost modificat cu succes</h3>
+    <h3 style="text-align: center; margin: auto;margin-top: 0">
+        Produsul a fost modificat cu succes<br>
+        <a style="margin: auto;margin-top: 0" href="/seller/product">Produse <- inapoi</a>
+    </h3>
 <?php else:?>
 <section class="edit-user-section">
     <div class="container">
@@ -13,6 +20,7 @@
             <div class="col-sm-4 col-sm-offset-4 padding-right">
                 
                     <div class="signup-form"><!--sign up form-->
+                    <a style="margin: auto;margin-top: 0" href="/seller/product">Produse <- inapoi</a><br><br>
                         <h2><?php if($addPg) {echo "Agaugati un produs";} else {echo "Editati produsul";}?></h2>
                         <form action="#" method="post">
                             <input type="text" name="den" value="<?php if($editPg){echo $den;}?>" placeholder="Denumire"/>
@@ -22,9 +30,15 @@
                                     min="2021-01-01" max="2022-12-22">
                             <input type="text" name="term" value="<?php if($editPg){echo $term;}?>" placeholder="Termen de valabilitate (zile)"/>
                             <select name="unit" id="">
-                                <option value="<?php if($editPg){echo $unit;}?>"><?=$unitName?></option>
-                                <option value="<?=$otherUnit?>"><?=$otherUnitName?></option>
-                                <option value="">--Unitatea de masura--</option>
+                                <?php if(isset($editPg) && $editPg):?>
+                                    <option value="<?=$unit?>"><?=$unitName?></option>
+                                    <option value="<?=$otherUnit?>"><?=$otherUnitName?></option>
+                                    <option value="">--Unitatea de masura--</option>
+                                <?php else: ?>
+                                    <option value="">--Unitatea de masura--</option>
+                                    <option value="1">Kg</option>
+                                    <option value="2">Litri</option>
+                                <?php endif; ?>
                             </select>
                             <input type="submit" name="submit" class="btn btn-default" value="Submit" />
                         </form>
