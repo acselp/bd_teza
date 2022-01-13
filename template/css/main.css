@@ -899,6 +899,7 @@ h2.title {
 
 .productinfo img{
   width: 100%;
+  height: 300px;
 }
 
 .productinfo{
@@ -1464,7 +1465,7 @@ h2.title {
 }
 
 
-.login-form form input, .signup-form form input, .signup-form form select {
+.login-form form input, .signup-form form input:not(input[type='radio']), .signup-form form select {
   background: #F0F0E9;
   border: medium none;
   color: #696763;
@@ -2569,3 +2570,13 @@ li.active {
 .margin-bottom-150 {
   margin-bottom: 150px;
 }
+
+
+.availability {
+  background-color: #F0F0E9;
+  margin-bottom: 10px;
+}
+
+/* .availability > div {
+  display: flex;
+} */

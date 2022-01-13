@@ -41,7 +41,7 @@
                             <?php foreach($prodList as $prod): ?>
                                 <tr>
                                     <td><?=$prod['id_produs']?></td>
-                                    <td><?=$prod['denumire_prod']?></td>
+                                    <td><a href="/product/detail/<?=$prod['id_produs']?>"><p><?=$prod['denumire_prod']?></p></a></td>
                                     <td><?=$prod['pret']?></td>
                                     <!-- <td><?//=$prod['fname'] . ' ' . $prod['lname'] ?></td> -->
                                     <td><?=$prod['data_fabr']?></td>

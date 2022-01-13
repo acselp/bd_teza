@@ -139,7 +139,5 @@
             }
         }
 
-        public static function updateUserData() {
-
-        }
+        // public static function get
     }

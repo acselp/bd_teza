@@ -20,4 +20,15 @@
 
             return true;
         }
+
+        public function actionDetail($id) {
+
+            $prodData = Product::getProductById($id);
+            $producator = Product::getProducerProductById($id);
+            $unit = Product::getUnitProductById($id);
+            $disp = Product::getDispProductById($id);
+            
+            require_once($_SERVER['DOCUMENT_ROOT'] . '/views/productDetail.php');
+            return true;
+        }
     }

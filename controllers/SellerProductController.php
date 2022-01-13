@@ -28,9 +28,14 @@
                 $term = $_POST['term'];
                 $fabr = $_POST['fabr'];
                 $unit = $_POST['unit'];
+                $img = $_FILES["prod_img"];
+                $desc = $_POST['description'];
 
+                $uploaded = Product::uploadProdImg($img);
                 
-                $added = Product::addProduct($den, $unit, $term, $fabr, $pret);
+                if($uploaded) {
+                    $added = Product::addProduct($den, $unit, $term, $fabr, $pret, "\/upload/" . $img['name'], $desc);
+                }
             }
 
             $prodData = array();
@@ -59,9 +64,9 @@
                 $term = $_POST['term'];
                 $fabr = $_POST['fabr'];
                 $unit = $_POST['unit'];
-
+                $disp = $_POST['disp'];
                 
-                $edited = Product::editProduct($id, $den, $unit, $term, $fabr, $pret);
+                $edited = Product::editProduct($id, $den, $unit, $term, $fabr, $pret, $disp);
             }
 
             $unitName = "";

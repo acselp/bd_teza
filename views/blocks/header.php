@@ -1,3 +1,4 @@
+<?php include_once ROOT . "/models/Cart.php"?>
 <body>
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
@@ -63,7 +64,7 @@
                             <li class="dropdown"><a href="#">Market<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="/producer">Producers</a></li>
-                                    <li><a href="#">Cart</a></li> 
+                                    <li><a href="/cart">Cart</a></li> 
                                 </ul>
                             </li> 
                             <li><a href="#">About</a></li>
@@ -75,7 +76,7 @@
                 <div class="col-sm-4">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav my-nav">                                    
-                            <li class="active"><a href="#"><i class="fa fa-shopping-cart active"></i> Cart</a></li>
+                            <li class="active"><a href="/cart"><i class="fa fa-shopping-cart active"></i> Cart(<?=Cart::getNumber()?>)</a></li>
                             <li class="<?php if(isset($_SESSION['user'])) {echo "active";}?>"><a href="/cabinet"><i class="fa fa-user"></i> Cabinet</a></li>
                             <li class="active"><a href="/user/register"> <img src="/template/images/user-plus.png" style="width: 1em; height: auto;" alt="">  Create Account</a></li>
                             <li class="<?php if(!isset($_SESSION['user'])) {echo "active";} else{echo "";}?>"><a href="/user/login"><i class="fa fa-lock"></i> Login</a></li>

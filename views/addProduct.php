@@ -22,7 +22,7 @@
                     <div class="signup-form"><!--sign up form-->
                     <a style="margin: auto;margin-top: 0" href="/seller/product">Produse <- inapoi</a><br><br>
                         <h2><?php if($addPg) {echo "Agaugati un produs";} else {echo "Editati produsul";}?></h2>
-                        <form action="#" method="post">
+                        <form action="#" method="post" enctype="multipart/form-data">
                             <input type="text" name="den" value="<?php if($editPg){echo $den;}?>" placeholder="Denumire"/>
                             <input type="text" name="pret" value="<?php if($editPg){echo $pret;}?>" placeholder="Pret"/>
                             <input type="date" id="start" name="fabr"
@@ -40,6 +40,23 @@
                                     <option value="2">Litri</option>
                                 <?php endif; ?>
                             </select>
+                            <input type="file" name="prod_img">
+                            <textarea style="margin-bottom: 10px;" placeholder="Descriere..." name="description" id="" cols="30" rows="5"></textarea>
+                            <?php if($editPg): ?>
+                                <div class="availability">
+                                    <p>Disponibilitate:</p>
+                                    <div>
+                                        <input type="radio" id="disp" name="disp" value="1" checked>
+                                        <label for="disp">În stoc</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" id="non_disp" name="disp" value="2">
+                                        <label for="non_disp">Indisponibil</label>
+                                    </div>
+                                </div>
+                                
+                            <?php endif; ?>
                             <input type="submit" name="submit" class="btn btn-default" value="Submit" />
                         </form>
                     </div><!--/sign up form-->
