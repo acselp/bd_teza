@@ -78,7 +78,7 @@
 						<ul>
 							<li>Total: <span><?=$total?> MDL</span></li>
 						</ul>
-							<a class="btn btn-default update" href="">Confirm</a>
+							<a class="btn btn-default update" href="/cart/confirm">Confirm</a>
 					</div>
 				</div>
 			</div>

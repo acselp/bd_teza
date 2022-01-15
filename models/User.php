@@ -117,6 +117,7 @@
 
         public static function logout() {
             unset($_SESSION['user']);
+            unset($_SESSION['products']);
             header("Location: /index.php");
         }
 
@@ -139,5 +140,36 @@
             }
         }
 
-        // public static function get
+        public static function isSeller($id) {
+            $userType = "SELECT type FROM users WHERE user_id = $id";
+
+            $db = Db::getConnection();
+            $res = $db->query($userType);
+            $res->setFetchMode(PDO::FETCH_ASSOC);
+            
+            $type = $res->fetch();
+            if($type === 2) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public static function isSellerNoId() {
+            $id = $_SESSION['user'];
+            $userType = "SELECT type FROM users WHERE user_id = $id";
+
+            $db = Db::getConnection();
+            $res = $db->query($userType);
+            $res->setFetchMode(PDO::FETCH_ASSOC);
+            
+            $type = $res->fetch();
+            if($type === 2) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }

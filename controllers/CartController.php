@@ -2,6 +2,8 @@
 
 include_once ROOT . "/models/Product.php";
 include_once ROOT . "/models/Cart.php";
+include_once ROOT . "/models/User.php";
+include_once ROOT . "/models/Orders.php";
 
 class CartController {
 
@@ -54,10 +56,42 @@ class CartController {
         return true;
     } 
 
-    // public function actionRemoveAll($id) { //Sterge total produsul din cos
-    //     $id = intval($id);
-    //     Cart::removeAll($id);
+    public function actionConfirmOrder() {   
 
-    //     header("Location: /cart");
-    // } 
+
+        $ordered = false;
+        if(isset($_POST['submit'])) {
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $tel = $_POST['tel'];
+            $prods = $_SESSION['products'];
+
+            $ordered = true;
+            $id = 0;
+
+            if(isset($_POST['id'])) {
+                $id = $_POST['id'];
+            }
+            else {
+                $id = NULL;
+            }
+
+            Orders::addOrder($fname, $lname, $tel, $prods, $id);
+        }
+        if(isset($_SESSION['user'])) {
+            $user_id = $_SESSION['user'];
+        }
+        
+
+        $userData = array();
+
+        if(!User::isGuest()) {
+            $userData = User::getUserDataById($user_id);
+        } 
+
+
+        include(ROOT . "/views/checkout.php");
+        return true;
+    }
+
 }

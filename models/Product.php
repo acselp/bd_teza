@@ -12,7 +12,7 @@ class Product
         $sql = "SELECT * FROM products 
                 INNER JOIN users 
                 ON user_id = id_producator
-                WHERE id_produs = '$id'";
+                WHERE id_produs = $id";
         $res = $db->query($sql);
         $res->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -104,9 +104,9 @@ class Product
 
         $i = 0;
         while ($row = $res->fetch()) {
-            $prodList[$i]['id'] = $row['id_prod'];
-            $prodList[$i]['name'] = $row['denumire'];
-            $prodList[$i]['termen'] = $row['termen'];
+            $prodList[$i]['id'] = $row['id_produs'];
+            $prodList[$i]['name'] = $row['denumire_prod'];
+            $prodList[$i]['termen'] = $row['term_val'];
             $prodList[$i]['pret'] = $row['pret'];
             $i++;
         }

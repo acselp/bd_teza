@@ -1,4 +1,5 @@
 <?php include_once ROOT . "/models/Cart.php"?>
+<?php include_once ROOT . "/models/User.php"?>
 <body>
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
@@ -75,8 +76,10 @@
 
                 <div class="col-sm-4">
                     <div class="shop-menu pull-right">
-                        <ul class="nav navbar-nav my-nav">                                    
-                            <li class="active"><a href="/cart"><i class="fa fa-shopping-cart active"></i> Cart(<?=Cart::getNumber()?>)</a></li>
+                        <ul class="nav navbar-nav my-nav">   
+                            <?php if((isset($_SESSION['user']) && !User::isSeller(isset($_SESSION['user']))) || !isset($_SESSION['user'])): ?>                                 
+                                <li class="active"><a href="/cart"><i class="fa fa-shopping-cart active"></i> Cart(<?=Cart::getNumber()?>)</a></li>
+                            <?php endif; ?> 
                             <li class="<?php if(isset($_SESSION['user'])) {echo "active";}?>"><a href="/cabinet"><i class="fa fa-user"></i> Cabinet</a></li>
                             <li class="active"><a href="/user/register"> <img src="/template/images/user-plus.png" style="width: 1em; height: auto;" alt="">  Create Account</a></li>
                             <li class="<?php if(!isset($_SESSION['user'])) {echo "active";} else{echo "";}?>"><a href="/user/login"><i class="fa fa-lock"></i> Login</a></li>

@@ -93,10 +93,9 @@
             <?php if($user['type'] === 'Vanzator'):?>
                 <li><a href="/seller/product">Produsele mele</a></li>
                 <li><a href="/product">Managementul comenzilor</a></li>
-            <?php else:?>
-                <li><a href="/product">Comenzile mele</a></li>
-            <?php endif;?>
-                <!--<li><a href="/cabinet/history">Список покупок</a></li>-->
+            <?php else: ?>
+                <li><a href="/order/show/my">Comenzile mele</a></li>
+            <?php endif; ?>
             </ul>
             
         </div>

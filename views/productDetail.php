@@ -6,47 +6,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
-                        <div class="left-sidebar">
-                            <h2>Каталог</h2>
-                            <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Категория</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Категория</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Категория</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Категория</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Категория</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Категория</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Категория</a></h4>
-                                    </div>
-                                </div>
-                            </div><!--/category-products-->
-
-                        </div>
                     </div>
 
                     <div class="col-sm-9 padding-right">
@@ -64,12 +23,10 @@
                                         <p>Id produs: <?=$prodData['id_produs']?></p>
                                         <span>
                                             <span><?=$prodData['pret'] . ' MDL / ' . $unit['unit']?></span>
-                                            <label>Cantitate:</label>
-                                            <input type="text" value="3" />
-                                            <button type="button" class="btn btn-fefault cart">
+                                            <a href="/cart/add/<?=$prodData['id_produs']?>"><button type="button" class="btn btn-fefault cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 Adauga în coș
-                                            </button>
+                                            </button></a>
                                         </span>
                                         <p><b>Disponibilitate:</b> <?=$disp['nume_disp']?></p>
                                         <p><b>Producator:</b> <?=$producator['fname'] . " " . $producator['lname']?></p>

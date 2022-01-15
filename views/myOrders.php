@@ -1,10 +1,11 @@
 <?php include ROOT . "/views/blocks/head.php"?>
 <?php include ROOT . "/views/blocks/header.php"?>
+<?php include_once ROOT . "/models/Orders.php"?>
 
 <?php if(isset($deleted) && $deleted): ?>
     <h3 style="text-align: center; margin: auto;margin-top: 0">
         Produsul a fost sters cu succes<br>
-        <a style="margin: auto;margin-top: 0" href="/seller/product">Produse <- inapoi</a>
+        <a style="margin: auto;margin-top: 0" href="/seller/product">Comenzi <- inapoi</a>
     </h3>
 <?php else: ?>
 
@@ -18,45 +19,70 @@
                 
                 <div class="col-md-12">
                 <a style="margin: auto;margin-top: 0" href="/cabinet">Cabinet <- inapoi</a><br><br><br>
-                <a href="/seller/product/add"> + Adauga produs</a>
-                <h3>Produsele dumneavoastra</h3>
+                <h3>Comenzile dumneavoastra</h3>
                 <div class="table-responsive">
 
                         
                     <table id="mytable" class="table table-bordred table-striped">
                         
                         <thead>
-                            <th>Id produs</th>
-                                <th>Denumire</th>
-                                <th>Pret</th>
-                                <th>Data fabricarii</th>
-                                <th>Termen de valabilitate</th>
-                                <th>Data adaugarii</th>
+                            <?php if(!$seller): ?>
+                                <th>Id comanda</th>
+                                <th>Data</th>
+                                <th>Suma totala</th>
+                                <th>Produse</th>
                                 <th>Edit</th>
-                            <th>Delete</th>
+                                <th>Delete</th>
+                            <?php else: ?>
+                                <th>Id comanda</th>
+                                <th>Cumparator</th>
+                                <th>Nr_tel</th>
+                                <th>Data</th>
+                                <th>Suma totala</th>
+                                <th>Produse</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            <?php endif; ?>
+
                         </thead>
 
                         <tbody>
-                        
-                            <?php foreach($prodList as $prod): ?>
-                                <tr>
-                                    <td><?=$prod['id_produs']?></td>
-                                    <td><a href="/product/detail/<?=$prod['id_produs']?>"><p><?=$prod['denumire_prod']?></p></a></td>
-                                    <td><?=$prod['pret']?></td>
-                                    <!-- <td><?//=$prod['fname'] . ' ' . $prod['lname'] ?></td> -->
-                                    <td><?=$prod['data_fabr']?></td>
-                                    <td><?=$prod['term_val'] . " zile"?></td>
-                                    <td><?=$prod['data_adaug']?></td>
-                                    <td><a href="/seller/product/edit/<?=$prod['id_produs']?>"><i class="fa fa-edit"></i></a></td>
-                                    <td><a href="/seller/product/remove/<?=$prod['id_produs']?>"><img class="menu_icon delete_icon" src="/template/images/trash.png" alt=""></a></td>
-                                </tr>
-                            <?php endforeach; ?>
+                                <?php if(!$seller): ?>
+                                    <?php foreach($orderList as $order): ?>
+                                        <tr>
+                                            <td><?=$order['id']?></td>
+                                            <td><?=$order['date']?></td>
+                                            <td><?=$summ = Orders::getTotalSummOrder($id, $order['id']);?></td>
+                                            <td><a href="/order/products/<?=$order['id']?>">Produse</a></td>
+                                            <td><a href="/seller/product/edit/<?=$prod['id_produs']?>"><i class="fa fa-edit"></i></a></td>
+                                            <td><a href="/seller/product/remove/<?=$prod['id_produs']?>"><img class="menu_icon delete_icon" src="/template/images/trash.png" alt=""></a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <?php foreach($orderList as $order): ?>
+                                        <tr>
+                                            <td><?=$order['id']?></td>
+                                            <td><?=$order['fname'] . $order['lname']?></td>
+                                            <td><?=$order['tel']?></td>
+                                            <td><?=$order['date']?></td>
+                                            <td><?=$order['summ']?></td>
+                                            <td><a href="#">Produse</a></td>
+                                            <td><a href="/seller/product/edit/<?=$prod['id_produs']?>"><i class="fa fa-edit"></i></a></td>
+                                            <td><a href="/seller/product/remove/<?=$prod['id_produs']?>"><img class="menu_icon delete_icon" src="/template/images/trash.png" alt=""></a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                           
 
                         </tbody>
                             
                     </table>
 
-  
+                    <div class="clearfix"></div>
+                    
+                        
+                    </div>
+                    
                 </div>
             </div>
         </div>

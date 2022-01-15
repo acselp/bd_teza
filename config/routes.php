@@ -5,9 +5,15 @@ return array(
     
 
     // 'producer' => 'producer/showAll',
+    "order/products/([0-9]+)" => "order/showMyOrderProducts/$1",
+    "order/show/my" => "order/showMyOrders",
+    "order/show/tome" => "order/showOrdersToMe",
+    "order/show/([0-9]+)" => "order/showProdsByIds/$1",
+
     "cart/remove/all/([0-9]+)" => "cart/removeProductAll/$1",
     "cart/remove/([0-9]+)" => "cart/removeProduct/$1",
-    "cart/add/([0-9]+)/([a-z]+)" => "cart/addProduct/$1/$2",
+    "cart/add/([0-9]+)/([a-z]+\/?)" => "cart/addProduct/$1/$2",
+    "cart/confirm" => "cart/confirmOrder",
     "cart" => "cart/index",
 
     
@@ -29,7 +35,7 @@ return array(
     'cabinet' => 'cabinet/index',
 
     'product/detail/([0-9]+)' => 'product/detail/$1',
-    'product' => 'product/showAll',
+    'product' => 'site/index',
 
     //Pagina de baza HOME
     'index.php' => 'site/index', // actionIndex в SiteController

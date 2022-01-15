@@ -100,15 +100,20 @@ class Cart {
     } 
 
     public static function getTotal() {
-        if(isset($_SESSION['products']))
+        if(isset($_SESSION['products'])) {
             $prods = $_SESSION['products'];
         
-        $summ = 0;
+            $summ = 0;
 
-        foreach($prods as $id => $nr) {
-            $prodData = Product::getProductById($id);
-            $summ += $nr * $prodData['pret'];
+            foreach($prods as $id => $nr) {
+                $prodData = Product::getProductById($id);
+                $summ += $nr * $prodData['pret'];
+            }
+            return $summ;
         }
-        return $summ;
     } 
+
+    public static function clear() {
+        unset($_SESSION['products']);
+    }
 }

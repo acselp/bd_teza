@@ -13,13 +13,13 @@
             return true;
         }
 
-        public function actionShowAll() {
-            $prodList = array();
-            $prodList = Product::getProductsAll();
-            require_once($_SERVER['DOCUMENT_ROOT'] . '/views/shop.php');
+        // public function actionShowAll() {
+        //     $prodList = array();
+        //     $prodList = Product::getProductsAll();
+        //     require_once($_SERVER['DOCUMENT_ROOT'] . '/views/index.php');
 
-            return true;
-        }
+        //     return true;
+        // }
 
         public function actionDetail($id) {
 
