@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile.apache
+    ports: 
+      - 80:80
+    volumes:
+      - .:/var/www/html
+  
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.mariadb
+    restart: always
+    volumes: 
+      - .:/docker-entrypoint-initdb.d 
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: market_bd
+  
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1

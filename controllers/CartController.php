@@ -7,6 +7,32 @@ include_once ROOT . "/models/Orders.php";
 
 class CartController {
 
+
+    public function actionAddProduct($id, $loc) {
+        $id = intval($id);
+
+        Cart::addProduct($id);
+        header("Location: /$loc");
+        return true;
+    } 
+
+    public function actionRemoveProduct($id) {
+        $id = intval($id);
+        Cart::removeProduct($id);
+
+        header("Location: /cart");
+        return true;
+    } 
+
+    public function actionRemoveProductAll($id) {
+        $id = intval($id);
+        Cart::removeAll($id);
+
+        header("Location: /cart");
+        return true;
+    } 
+
+
     public function actionIndex() {
         $prodData = array();
         $ids = array();
@@ -32,29 +58,7 @@ class CartController {
         return true;
     }
 
-    public function actionAddProduct($id, $loc) {
-        $id = intval($id);
-
-        Cart::addProduct($id);
-        header("Location: /$loc");
-        return true;
-    } 
-
-    public function actionRemoveProduct($id) {
-        $id = intval($id);
-        Cart::removeProduct($id);
-
-        header("Location: /cart");
-        return true;
-    } 
-
-    public function actionRemoveProductAll($id) {
-        $id = intval($id);
-        Cart::removeAll($id);
-
-        header("Location: /cart");
-        return true;
-    } 
+   
 
     public function actionConfirmOrder() {   
 
