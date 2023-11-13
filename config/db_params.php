@@ -1,6 +1,6 @@
 <?php
     return array(
-        "host" =>  "bd_teza_db_1",
+        "host" =>  "bd_teza-db-1",
         "dbname" => "market_bd",
         "user" => "root",
         "password" => "root",
