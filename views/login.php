@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/head.php'; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/header.php'; ?>
 
 
@@ -37,3 +41,4 @@
     </section>
     <?php endif; ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+</html>

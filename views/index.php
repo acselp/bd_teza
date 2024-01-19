@@ -5,7 +5,7 @@
 
         
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/views/blocks/header.php"); ?>
-    
+    <body>
         <section>
             <div class="container">
                 <div class="row">
