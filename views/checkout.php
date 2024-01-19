@@ -1,5 +1,11 @@
-<?php include_once(ROOT . "/views/blocks/head.php") ?>
-<?php include_once(ROOT . "/views/blocks/header.php") ?>
+<!DOCTYPE html>
+<html lang="en">
+    
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/views/blocks/head.php"); ?>
+
+        
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/views/blocks/header.php"); ?>
+    <body>
 
 	<section id="cart_items">
 		<div class="container">
@@ -47,4 +53,5 @@
 	</section> <!--/#cart_items-->
 
 	
-<?php include_once(ROOT . "/views/blocks/footer.php") ?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+</html>

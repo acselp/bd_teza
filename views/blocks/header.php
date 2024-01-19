@@ -1,6 +1,5 @@
 <?php include_once ROOT . "/models/Cart.php"?>
 <?php include_once ROOT . "/models/User.php"?>
-<body>
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
         <div class="container">

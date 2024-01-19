@@ -1,5 +1,8 @@
-<?php include ROOT . "/views/blocks/head.php"?>
-<?php include ROOT . "/views/blocks/header.php"?>
+<!DOCTYPE html>
+<html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/head.php'; ?>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/header.php'; ?>
 
 <section>
 <style src="./template/css/producers.php">
@@ -194,5 +197,5 @@
   </div>
 </div>
 </section>
-
-<?php include ROOT . "/views/blocks/footer.php"?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+</html>

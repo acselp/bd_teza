@@ -1,5 +1,11 @@
-<?php include ROOT . "/views/blocks/head.php"?>
-<?php include ROOT . "/views/blocks/header.php"?>
+<!DOCTYPE html>
+<html lang="en">
+    
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/views/blocks/head.php"); ?>
+
+        
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/views/blocks/header.php"); ?>
+    <body>
 
 <?php if(isset($deleted) && $deleted): ?>
     <h3 style="text-align: center; margin: auto;margin-top: 0">
@@ -121,4 +127,6 @@
 
 <?php endif; ?>
 
-<?php include ROOT . "/views/blocks/footer.php"?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+<
+</html>

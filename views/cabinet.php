@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/head.php'; ?>
+
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/header.php'; ?>
 
 <section class="cabinet-section">
@@ -103,3 +107,4 @@
 </section>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+</html>

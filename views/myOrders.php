@@ -1,5 +1,8 @@
-<?php include ROOT . "/views/blocks/head.php"?>
-<?php include ROOT . "/views/blocks/header.php"?>
+<!DOCTYPE html>
+<html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/head.php'; ?>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/header.php'; ?>
 <?php include_once ROOT . "/models/Orders.php"?>
 
 <?php if(isset($deleted) && $deleted): ?>
@@ -147,4 +150,5 @@
 
 <?php endif; ?>
 
-<?php include ROOT . "/views/blocks/footer.php"?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+</html>

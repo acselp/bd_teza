@@ -1,5 +1,8 @@
-<?php include ROOT . '/views/blocks/head.php'; ?>
-<?php include ROOT . '/views/blocks/header.php'; ?>
+<!DOCTYPE html>
+<html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/head.php'; ?>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/header.php'; ?>
 
 
 <?php if($added): ?>
@@ -71,3 +74,4 @@
 <?php endif;?>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+</html>

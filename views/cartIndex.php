@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/head.php'; ?>
 
-	<?php include(ROOT . "/views/blocks/head.php")?>
-    <?php include(ROOT . "/views/blocks/header.php")?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/header.php'; ?>
 
 	<section id="cart_items">
 		<div class="container">
@@ -85,4 +86,5 @@
 		</div>
 	</section><!--/#do_action-->
 
-	<?php include(ROOT . "/views/blocks/footer.php")?>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/blocks/footer.php'; ?>
+</html>
