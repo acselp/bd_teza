@@ -9,21 +9,18 @@ class Orders {
                 VALUES ('$fname', '$lname', '$tel', '$id');";
         $res = $db->query($sql);
 
-        // //Selectam id-ul ultimei comenzi 
-        // $sql = "SELECT * FROM orders ORDER BY id DESC LIMIT 1";
-        // $res = $db->query($sql);
-        // $res->setFetchMode(PDO::FETCH_ASSOC);
+        //Selectam id-ul ultimei comenzi 
+        $sql = "SELECT * FROM orders ORDER BY id DESC LIMIT 1";
+        $res = $db->query($sql);
         
-        // $order = $res->fetch();
+        $order = $res->fetch(PDO::FETCH_ASSOC);
 
 
-        // foreach($products as $key => $value) {
-        //     $sql = "INSERT INTO orders_products (id_order, id_product, cantitate) 
-        //             values('$order[id]', '$key', $value)";
-        //     $res = $db->query($sql);
-        // }
-
-        
+        foreach($products as $key => $value) {
+            $sql = "INSERT INTO orders_products (id_order, id_product, cantitate) 
+                    values('$order[id]', '$key', $value)";
+            $res = $db->query($sql);
+        }
 
 
         unset($_SESSION['products']);
